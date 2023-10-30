@@ -93,28 +93,8 @@ D F <BR>
 G F <BR>
 F H <BR>
 <hr>
-<h3>Sample Output</h3>
-<hr>
-['A', 'B', 'E', 'D', 'C', 'G', 'F', 'H']
 
-<hr>
-
-<hr>
-<h3>Sample Input</h3>
-<hr>
-5 5 <BR>
-0 1 <BR>
-0 2 <BR>
-0 3 <BR>
-2 3 <BR>
-2 4 <BR>
-<hr>
-<h3>Sample Output</h3>
-<hr>
-['0', '1', '2', '3', '4']
-
-<hr>
-## OUTPUT:
+<h3>Output</h3>
 <img width="209" alt="277281778-6def5beb-3e56-43e0-8ee4-44c4bba08488" src="https://github.com/charumathiramesh/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/120204455/fe48aff1-ab25-4266-b631-d56f98c3d422">
 
 <h3>Result:</h3>
