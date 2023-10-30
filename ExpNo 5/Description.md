@@ -1,6 +1,6 @@
 <h1>ExpNo 5 : Implement Minimax Search Algorithm for a Simple TIC-TAC-TOE game</h1> 
-<h3>Name: Saravanan N</h3>
-<h3>Register Number/Staff Id: TSML006</h3>
+<h3>Name: Charumathi R</h3>
+<h3>Register Number: 212222240021</h3>
 <H3>Aim:</H3>
 <p>
     Implement Minimax Search Algorithm for a Simple TIC-TAC-TOE game
@@ -102,14 +102,144 @@ def minimax(game)
     end
 end
 
+## Program:
+```c
+import time
+class Game:
+    def __init__(self):
+        self.initialize_game()
+    def initialize_game(self):
+        self.current_state = [['.','.','.'],
+                              ['.','.','.'],
+                              ['.','.','.']]
+        self.player_turn = 'X'
+    def draw_board(self):
+        for i in range(0, 3):
+            for j in range(0, 3):
+                print('{}|'.format(self.current_state[i][j]), end=" ")
+            print()
+        print()
+    def is_valid(self, px, py):
+        if px < 0 or px > 2 or py < 0 or py > 2:
+            return False
+        elif self.current_state[px][py] != '.':
+            return False
+        else:
+            return True
+    def is_end(self):
+        for i in range(0, 3):
+            if (self.current_state[0][i] != '.' and
+                self.current_state[0][i] == self.current_state[1][i] and
+                self.current_state[1][i] == self.current_state[2][i]):
+                return self.current_state[0][i]
+        for i in range(0, 3):
+            if (self.current_state[i] == ['X', 'X', 'X']):
+                return 'X'
+            elif (self.current_state[i] == ['O', 'O', 'O']):
+                return 'O'
+        if (self.current_state[0][0] != '.' and
+            self.current_state[0][0] == self.current_state[1][1] and
+            self.current_state[0][0] == self.current_state[2][2]):
+            return self.current_state[0][0]
+        if (self.current_state[0][2] != '.' and
+            self.current_state[0][2] == self.current_state[1][1] and
+            self.current_state[0][2] == self.current_state[2][0]):
+            return self.current_state[0][2]
+        for i in range(0, 3):
+            for j in range(0, 3):
+                if (self.current_state[i][j] == '.'):
+                    return None
+        return '.'
+    def max(self):
+        maxv = -2
+        px = None
+        py = None
+        result = self.is_end()
+        if result == 'X':
+            return (-1, 0, 0)
+        elif result == 'O':
+            return (1, 0, 0)
+        elif result == '.':
+            return (0, 0, 0)
+        for i in range(0, 3):
+            for j in range(0, 3):
+                if self.current_state[i][j] == '.':
+                    self.current_state[i][j] = 'O'
+                    (m, min_i, min_j) = self.min()
+                    if m > maxv:
+                        maxv = m
+                        px = i
+                        py = j
+                    self.current_state[i][j] = '.'
+        return (maxv, px, py)
+    def min(self):
+        minv = 2
+        qx = None
+        qy = None
+        result = self.is_end()
+        if result == 'X':
+            return (-1, 0, 0)
+        elif result == 'O':
+            return (1, 0, 0)
+        elif result == '.':
+            return (0, 0, 0)
+        for i in range(0, 3):
+            for j in range(0, 3):
+                if self.current_state[i][j] == '.':
+                    self.current_state[i][j] = 'X'
+                    (m, max_i, max_j) = self.max()
+                    if m < minv:
+                        minv = m
+                        qx = i
+                        qy = j
+                    self.current_state[i][j] = '.'
+        return (minv, qx, qy)
+    def play(self):
+        while True:
+            self.draw_board()
+            self.result = self.is_end()
+            if self.result != None:
+                if self.result == 'X':
+                    print('The winner is X!')
+                elif self.result == 'O':
+                    print('The winner is O!')
+                elif self.result == '.':
+                    print("It's a tie!")
+                self.initialize_game()
+                return
+            if self.player_turn == 'X':
+                while True:
+                    start = time.time()
+                    (m, qx, qy) = self.min()
+                    end = time.time()
+                    print('Evaluation time: {}s'.format(round(end - start, 7)))
+                    print('Recommended move: X = {}, Y = {}'.format(qx, qy))
+                    px = int(input('Insert the X coordinate: '))
+                    py = int(input('Insert the Y coordinate: '))
+                    (qx, qy) = (px, py)
+                    if self.is_valid(px, py):
+                        self.current_state[px][py] = 'X'
+                        self.player_turn = 'O'
+                        break
+                    else:
+                        print('The move is not valid! Try again.')
+            else:
+                (m, px, py) = self.max()
+                self.current_state[px][py] = 'O'
+                self.player_turn = 'X'
+def main():
+    g = Game()
+    g.play()
+
+if __name__ == "__main__":
+    main()
+```
+
 <hr>
 <h2>Sample Input and Output</h2>
+<img width="181" alt="277383829-a0d159a6-c07b-41f0-8445-fccfd5bed3eb" src="https://github.com/charumathiramesh/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/120204455/d0c02b62-d61c-4376-aaf7-87254db6644f">
 
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/6b668685-8bcc-43c5-b5c2-ddd43f3da84a)
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/8ca1b08a-8312-4ef5-89df-e69b7b2c3fa2)
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/dc06427a-d4ce-43a1-95bd-9acfaefac323)
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/a8a27e2a-6fd4-46a2-afb5-6d27b8556702)
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/a2acb6a1-ed8e-42e5-8968-fe805e4b0255)
+
 
 <hr>
 <h2>Result:</h2>
