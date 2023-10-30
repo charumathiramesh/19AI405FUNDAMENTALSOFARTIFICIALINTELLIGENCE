@@ -237,8 +237,10 @@ if __name__ == "__main__":
 
 <hr>
 <h2>Sample Input and Output</h2>
-<img width="181" alt="277383829-a0d159a6-c07b-41f0-8445-fccfd5bed3eb" src="https://github.com/charumathiramesh/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/120204455/d0c02b62-d61c-4376-aaf7-87254db6644f">
 
+
+<img width="200" alt="277383438-519a04c6-6529-4f4f-848a-c38cab4d4a51" src="https://github.com/charumathiramesh/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/120204455/22e3063f-c75c-4fc3-9bd4-757cfc88fd83">
+<img width="181" alt="277383829-a0d159a6-c07b-41f0-8445-fccfd5bed3eb" src="https://github.com/charumathiramesh/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/120204455/eb30c5a4-6f47-4f69-bf65-6bd043c97296">
 
 
 <hr>
