@@ -24,7 +24,8 @@ Alpha–Beta (𝛼−𝛽) algorithm is actually an improved minimax using a heu
 When added to a simple minimax algorithm, it gives the same output but cuts off certain branches that can’t possibly affect the final decision — dramatically improving the performance
 <hr>
 <h3>Program:</h3>
-```
+
+```c
 import time
 class Game:
     def __init__(self):
@@ -163,7 +164,6 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-
 <h2>Sample Input and Output:</h2>
 
 <img width="178" alt="277387422-cfb2947b-d37c-435f-be9b-f199404bef7f" src="https://github.com/charumathiramesh/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/120204455/3e8cda4b-aaa2-449f-82d5-6ed1b5f32f26">
